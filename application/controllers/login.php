@@ -35,7 +35,7 @@
                 );
 
                 $this->session->set_userdata($data);
-                redirect('dashboard');
+                redirect('sched');
             } else {
                 redirect('/');
             }

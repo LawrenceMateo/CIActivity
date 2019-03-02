@@ -23,19 +23,19 @@
                 $data['email'] = $this->session->userdata('email');
                 $name = $data['email'];
                 $user_name['email'] = strstr($name, '@', true);
-                redirect('dashboard');
+                redirect('sched');
             } else {
                 $this->load->model('user_schedule');
                 if($query = $this->user_schedule->insert_sched()){
                     $data['email'] = $this->session->userdata('email');
                     $name = $data['email'];
                     $user_name['email'] = strstr($name, '@', true);
-                    redirect('dashboard');
+                    redirect('sched');
                 } else {
                     $data['email'] = $this->session->userdata('email');
                     $name = $data['email'];
                     $user_name['email'] = strstr($name, '@', true);
-                    redirect('dashboard');
+                    redirect('sched');
                 }
             }
         }
