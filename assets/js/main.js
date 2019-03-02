@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
     function show_sched(){
         $.ajax({
             type  : 'ajax',
-            url   : 'http://localhost/scheduler/sched/view_sched',
+            url   : './api/view_sched',
             async : true,
             dataType : 'json',
             success : function(data){
@@ -29,18 +29,18 @@ jQuery(document).ready(function($){
     }
 
         $('#add_sched_btn').click(function(){
-            var date = ('#date').val();
-            var description = ('#description').val();
+            var date = $('#add_date').val();
+            var description = $('#description').val();
 
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/scheduler/sched/add_sched',
+                url: 'http://localhost/scheduler/api/add_sched',
                 dataType: 'JSON',
                 data: {date:date, description:description},
                 success: function(data){
                     $('#date').val();
                     $('#description').val();
-                    $('#add-modal').hide();
+                    $('#add-modal').modal("hide");
                     show_sched();
                     console.log('New schedule added successfully!');
                 }
@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
             var description = $('#edit_description').val();
             $.ajax({
                 type : 'POST',
-                url  : 'http://localhost/scheduler/sched/edit_sched',
+                url  : 'http://localhost/scheduler/api/edit_sched',
                 dataType : 'JSON',
                 data : {id:id, date:date, description:description},
                 success: function(data){
@@ -92,7 +92,7 @@ jQuery(document).ready(function($){
             
             $.ajax({
                 type : 'POST',
-                url  : 'http://localhost/scheduler/sched/edit_sched',
+                url  : 'http://localhost/scheduler/api/edit_sched',
                 dataType : 'JSON',
                 data : {id:id},
                 success : function(data){

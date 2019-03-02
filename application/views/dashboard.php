@@ -22,7 +22,7 @@
 <body class="dash-body">
         <div class="row">
             <nav class="navbar navbar-light col-lg-12 navi">
-                <a href="<?php echo base_url();?>sched" class="navbar-brand ml-5">
+                <a href="<?php echo base_url();?>api" class="navbar-brand ml-5">
                     <span class="logged-email">
                         <h3>SCHEDULES</h3>
                     </span>
@@ -98,17 +98,16 @@
                             <h4 class="modal-title text-center">Add Schehdule</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
-                        <?php echo form_open(''); ?>
                             <div class="form-group">
-                                <span><i class="add-date fas fa-calendar"></i><input id="date" class="form-control" type="date" name="date"></span>
+                                <span><i class="add-date fas fa-calendar"></i><input id="add_date" class="form-control" type="date" name="date"></span>
                             </div>
                             <div class="form-group">
                                 <input id="description" class="form-control" type="text" name="description" placeholder="Add description">
                             </div>
                             <div>
-                                <span><i class="add-btn fas fa-calendar-plus"></i><?php echo form_submit('submit', 'Add Schedule', 'id="add_sched_btn" class="btn btn-success"'); ?></span>                                            
+                                <!-- <span><i class="add-btn fas fa-calendar-plus"></i><?php echo form_submit('submit', 'Add Schedule', 'id="add_sched_btn" class="btn btn-success"'); ?></span>                                             -->
+                                <span><i class="add-btn fas fa-calendar-times"></i><button id="add_sched_btn" class="btn btn-success">Add Schedule</button></span>                     
                             </div>    
-                        <?php echo form_close()?>
                     </div>       
                 </div>
             </div> <!-- End of Add Modal -->
@@ -131,7 +130,7 @@
                                 <input id="edit_description" class="form-control" type="text" name="edit_description" placeholder="Add description">
                             </div>
                             <div class="form-group">
-                                <input id="edit_id" class="form-control" type="hidden" name="edit_id" readonly>
+                                <input id="edit_id" class="form-control" type="hidden" name="edit_id">
                             </div>
                             <div>
                                 <span><i class="add-btn fas fa-calendar-minus"></i><?php echo form_submit('submit', 'Edit Schedule', 'id="edit_sched_btn" class="btn btn-success"'); ?></span>                                            
@@ -151,16 +150,18 @@
                             <h4 class="modal-title text-center">Delete Schehdule</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
-                            <div class="modal-body">
-                                <strong>Are you sure to delete this record?</strong>
-                                <div class="form-group">
-                                    <span><input id="delete_id" class="form-control" type="hidden" name="delete_id"></span>
-                                </div>
+                            <div class="form-group">
+                                <span>
+                                    <strong>Do you want to delete this schedule?</strong>
+                                </span>
+                                <span>
+                                    <input id="delete_id" class="form-control" type="hidden" name="delete_id">
+                                </span>
                             </div>
                             <div>
-                                <span><i class="add-btn fas fa-calendar-times"></i><button id="delete_sched_btn" class="btn btn-danger">Delete Schedule</button></span>                     
-                                <!-- <?php echo form_submit('submit', 'Delete Schedule', 'id="delete_sched_btn" class="btn btn-danger"'); ?> -->
-                            </div>    
+                                <span><i class="add-btn fas fa-calendar-plus"></i><button id="delete_sched_btn" class="btn btn-danger">Delete Schedule</button></span>
+                                <!-- <?php echo form_submit('submit', 'Add Schedule', 'id="delete_sched_btn" class="btn btn-danger"'); ?> -->
+                            </div>   
                     </div>       
                 </div>
             </div> <!-- End of Delete Modal -->

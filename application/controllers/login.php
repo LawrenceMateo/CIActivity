@@ -35,7 +35,7 @@
                 );
 
                 $this->session->set_userdata($data);
-                redirect('sched');
+                redirect('api');
             } else {
                 redirect('/');
             }
